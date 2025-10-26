@@ -119,5 +119,18 @@ class CalculatorTest {
         assertEquals(expected, actual);
     }
     //TODO hier weitere Tests erstellen
+    @Test
+    @DisplayName("should show Erron on screen to prevent division by zero")
+    void testScreenError(){
+        Calculator calc = new Calculator();
+
+        calc.pressDigitKey(0);
+        calc.pressUnaryOperationKey("1/x");
+        String expected = "Error";
+        String actual = calc.readScreen();
+
+        assertEquals(expected, actual);
+    }
+
 }
 
